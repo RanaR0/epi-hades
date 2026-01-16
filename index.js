@@ -18,9 +18,15 @@ function oraculoAleatorio() {
   return oraculos[Math.floor(Math.random() * oraculos.length)];
 }
 
+function oraculoTodo() {
+  const oraculos = cargarOraculos();
+  return oraculos;
+}
+
+
 // Endpoint JSON
 app.get("/api/oraculo", (req, res) => {
-  res.json(oraculoAleatorio());
+  res.json(oraculoTodo());
 });
 
 // Página HTML con CSS oscuro inline
