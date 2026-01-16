@@ -23,16 +23,52 @@ app.get("/api/oraculo", (req, res) => {
   res.json(oraculoAleatorio());
 });
 
-// Página HTML mínima
+// Página HTML con CSS oscuro inline
 app.get("/", (req, res) => {
   const data = oraculoAleatorio();
   res.send(`
     <html>
-      <head><title>Oráculo de Hades</title></head>
+      <head>
+        <title>Oráculo de Hades</title>
+        <style>
+          body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 2rem;
+            line-height: 1.6;
+          }
+          h1 {
+            color: #bb86fc;
+            text-shadow: 0 0 10px #7f39fb;
+          }
+          pre {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px #3700b3;
+            overflow-x: auto;
+            font-size: 1.1rem;
+          }
+          p {
+            font-style: italic;
+            margin-top: 2rem;
+            color: #a0a0a0;
+            text-align: center;
+          }
+          a {
+            color: #bb86fc;
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+        </style>
+      </head>
       <body>
         <h1>🔮 Oráculo de Hades</h1>
         <pre>${JSON.stringify(data, null, 2)}</pre>
-        <p>Casa: Hades · Plataforma: Surge / Render / Railway</p>
+        <p>Casa: Hades - Equipo: 6 - Plataforma: Render</p>
       </body>
     </html>
   `);
